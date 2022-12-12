@@ -63,8 +63,7 @@ h1 {
     border-bottom-left-radius: 3px;
 }
 
-.keys:active,
-.keys:focus {
+.keys:active {
     background-color: #e9e7e7;
 }
 
@@ -72,8 +71,7 @@ h1 {
     background-color: #c6c6c6;
 }
 
-.operators:active,
-.operators:focus {
+.operators:active {
     background-color: #a1a1a1;
 }
 
@@ -85,7 +83,6 @@ h1 {
     border-bottom-right-radius: 3px;
 }
 
-.equal:active,
-.equal:focus {
+.equal:active {
     background-color: #d98730;
 }
