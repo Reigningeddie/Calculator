@@ -6,6 +6,10 @@ keys.addEventListener('click', function(e) {
   const input = event.target.value
   const display = output.value
 
+  if (pad.classList.contains('equal')) {
+    console.log(display)
+  }
+
   if (pad.classList.contains('num')) {
     if (display === 'Infinity') {
       output.value = input
