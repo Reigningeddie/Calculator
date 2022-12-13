@@ -7,7 +7,10 @@ keys.addEventListener('click', function(e) {
   const display = output.value
 
   if (pad.classList.contains('equal')) {
-    console.log(display)
+    console.log(eval(display))
+
+    let solve = eval(display);
+    output.value = solve
   }
 
   if (pad.classList.contains('num')) {
