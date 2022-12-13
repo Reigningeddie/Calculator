@@ -2,17 +2,24 @@ const keys = document.querySelector('.pad');
 const output = document.querySelector('.output');
 
 keys.addEventListener('click', function(e) {
+  const pad = event.target
   const input = event.target.value
-  console.log(input)
-
   const display = output.value
-  console.log(display)
 
-
-  if (display === 'Infinity') {
-    output.value = input
-  } else {
-    output.value = display + input
+  if (pad.classList.contains('num')) {
+    if (display === 'Infinity') {
+      output.value = input
+    } else {
+      output.value = display + input
+    }
   }
+
+  if (pad.classList.contains('operators')) {
+
+    console.log(input)
+    console.log(typeof(event.target.value))
+  }
+
+
 
 })
