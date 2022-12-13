@@ -15,9 +15,11 @@ keys.addEventListener('click', function(e) {
   }
 
   if (pad.classList.contains('operators')) {
-
-    console.log(input)
-    console.log(typeof(event.target.value))
+    if (display === 'Infinity') {
+      return 'Infinity'
+    } else {
+      output.value = display +input
+    }
   }
 
 
