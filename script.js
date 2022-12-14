@@ -8,6 +8,8 @@ keys.addEventListener('click', function(e) {
   const input = event.target.value
   const display = output.value
 
+  
+
   if (pad.classList.contains('clear')) {
     output.value = '0'
   }
@@ -26,9 +28,11 @@ keys.addEventListener('click', function(e) {
   }
 
   if (pad.classList.contains('operators')) {
-    if (display === 'Infinity' || display === '0') {
-      return 'Infinity'
-  } else {
+    if (display.includes('+') || display.includes('-') || display.includes('*') || display.includes('/')) {
+      return "Error: One operation per equation."
+  } else if (display === 'Infinity' || display === '0') {
+    return 'Infinity'
+  }   else {
     output.value = display + input
     }
   }
