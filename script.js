@@ -29,7 +29,7 @@ keys.addEventListener('click', function(e) {
 
   if (pad.classList.contains('operators')) {
     if (display.includes('+') || display.includes('-') || display.includes('*') || display.includes('/')) {
-      return "Error: One operation per equation."
+      return alert('ERROR: One operator per expression.')
   } else if (display === 'Infinity' || display === '0') {
     return 'Infinity'
   }   else {
