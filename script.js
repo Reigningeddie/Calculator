@@ -10,7 +10,7 @@ keys.addEventListener('click', function(e) {
   const input = event.target.value
   const display = output.value
 
-  if (display.length == 10) {
+  if (display.length === 10) {
     const erase = () => {
       output.value = '0'
     }
@@ -28,7 +28,7 @@ keys.addEventListener('click', function(e) {
   }
 
   if (pad.classList.contains('num')) {
-    if (display === 'Infinity' || display === '0') {
+    if (display === '0') {
       output.value = input
     } else {
       output.value = display + input
@@ -38,7 +38,7 @@ keys.addEventListener('click', function(e) {
   if (pad.classList.contains('operators')) {
     if (display.includes('+') || display.includes('-') || display.includes('*') || display.includes('/')) {
       return alert('ERROR: One operator per expression.')
-  } else if (display === 'Infinity' || display === '0') {
+  } else if (display === '0') {
     return 'Infinity'
   }   else {
     output.value = display + input
