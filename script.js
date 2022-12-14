@@ -22,9 +22,11 @@ keys.addEventListener('click', function(e) {
   }
 
   if (pad.classList.contains('operators')) {
+    const check = display.lastIndexOf("÷")
+    console.log(check)
     if (display === 'Infinity') {
       return 'Infinity'
-    } else {
+  } else {
       output.value = display +input
     }
   }
