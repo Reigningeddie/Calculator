@@ -1,5 +1,7 @@
 const keys = document.querySelector('.pad');
 const output = document.querySelector('.output');
+const display = output.value
+
 
 
 
@@ -8,7 +10,13 @@ keys.addEventListener('click', function(e) {
   const input = event.target.value
   const display = output.value
 
-  
+  if (display.length == 10) {
+    const erase = () => {
+      output.value = '0'
+    }
+    alert('ERROR: Maximum amount of characters reached.')
+    erase();
+  }
 
   if (pad.classList.contains('clear')) {
     output.value = '0'
@@ -36,4 +44,5 @@ keys.addEventListener('click', function(e) {
     output.value = display + input
     }
   }
+
 })
