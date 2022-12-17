@@ -9,13 +9,21 @@ const calculator = {
   operator: null,
 }
 
-function input(num) {
+function inputNum(input) {
   const { display } = calculator;
 
   if (display === '0') {
-    calculator.display = num
+    calculator.display = input
   } else {
-    calculator.display = display + num
+    calculator.display = display + input
+  }
+}
+
+function decimal(dot) {
+  if (calculator.display.includes(dot)) {
+    calculator.display = dot;
+  } else {
+    return;
   }
 }
 
@@ -23,26 +31,24 @@ keys.addEventListener('click', e => {
   const { target } = event;
   const { value } = event.target;
 
-  input(value);
+  inputNum(value);
   Display();
   
   if (target.classList.contains('operators')) {
-    console.log(value)
     return 
   }
 
   if (target.classList.contains('num')) {
-    console.log(value)
     return
   }
 
   if (target.classList.contains('decimal')) {
-    console.log(value)
+    decimal(value)
+    Display();
     return
   }
 
   if (target.classList.contains('clear')) {
-    console.log(value)
     return
   }
 })
