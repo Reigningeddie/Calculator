@@ -12,7 +12,11 @@ const calculator = {
 function input(num) {
   const { display } = calculator;
 
-  calculator.display = display == '0' ? num : display + num
+  if (display === '0') {
+    calculator.display = num
+  } else {
+    calculator.display = display + num
+  }
 }
 
 keys.addEventListener('click', e => {
