@@ -20,19 +20,19 @@ function inputNum(input) {
 }
 
 function decimal(dot) {
-  if (calculator.display.includes(dot)) {
-    calculator.display = dot;
-  } else {
-    return;
-  }
+  if (!calculator.display.includes(dot)) {
+    calculator.display += dot;
+  } 
+
 }
 
 keys.addEventListener('click', e => {
   const { target } = event;
   const { value } = event.target;
 
-  inputNum(value);
-  Display();
+  if (target.matches('button')) {
+    return;
+  }
   
   if (target.classList.contains('operators')) {
     return 
@@ -45,12 +45,15 @@ keys.addEventListener('click', e => {
   if (target.classList.contains('decimal')) {
     decimal(value)
     Display();
-    return
+    return;
   }
 
   if (target.classList.contains('clear')) {
     return
   }
+
+  inputNum(value)
+  Display();
 })
 
 function Display() {
