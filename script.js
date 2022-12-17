@@ -3,16 +3,25 @@ const output = document.querySelector('.output');
 
 
 const calculator = {
-  displayValue: '0',
+  display: '0',
   firstNum: null,
   secondNum: false,
   operator: null,
 }
 
+function input(num) {
+  const { display } = calculator;
+  
+
+  calculator.display = display === '0' ? num : display + num
+}
+
 keys.addEventListener('click', e => {
   const { target } = event;
   const { value } = event.target;
-  const display = output.value
+
+  input(value);
+  Display();
   
   if (target.classList.contains('operators')) {
     console.log(value);
@@ -36,7 +45,7 @@ keys.addEventListener('click', e => {
 })
 
 function Display() {
-  output.value = calculator.displayValue;
+  output.value = calculator.display;
 }
 
 Display();
