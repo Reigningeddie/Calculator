@@ -1,5 +1,5 @@
 const keys = document.querySelector('.pad');
-const display = document.querySelector('.output');
+const output = document.querySelector('.output');
 
 
 const calculator = {
@@ -9,39 +9,18 @@ const calculator = {
   operator: null,
 }
 
-function clear() {
-  calculator.displayValue = '0'
-  calculator.firstNum = null,
-  calculator.secondNum = false,
-  calculator.operator = null
-}
-
-function numbers(input) {
-  const { displayValue, secondInput } = calculator;
-
-  if (secondInput == true) {
-    calculator.display = input;
-    calculator.secondInput = false;
-  } else {
-    calculator.displayValue = displayValue === '0' ? input : displayValue + input;
-  }
-}
-
-function calculate(firstNum, operator, secondNum) {
-  if (operator === '+') return firstNum + secondNum;
-  if (operator === '-') return firstNum - secondNum;
-  if (operator === '&times') return firstNum * secondNum;
-  if (operator === '÷') return firstNum / secondNum;
-
-  return secondNum
-} 
-
 keys.addEventListener('click', e => {
-  const { target } = event;
+  const { target } = event.target;
   const { value } = event.target;
   console.log(value)
 })
 
+function Display() {
+  output.value = calculator.displayValue;
+  console.log(output.value)
+}
+
+Display();
 
 
 
@@ -71,8 +50,8 @@ keys.addEventListener('click', e => {
 //   }
   
 //   if (pad.classList.contains('equal')) {
-//     let solve = (eval(display);
-//     output.value = solve)
+//     let solve = (eval(display))
+//     output.value = solve
 //   }
 
 //   if (pad.classList.contains('num')) {
