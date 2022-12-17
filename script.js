@@ -10,14 +10,33 @@ const calculator = {
 }
 
 keys.addEventListener('click', e => {
-  const { target } = event.target;
+  const { target } = event;
   const { value } = event.target;
-  console.log(value)
+  const display = output.value
+  
+  if (target.classList.contains('operators')) {
+    console.log(value);
+    return 
+  }
+
+  if (target.classList.contains('num')) {
+    console.log(value);
+    return
+  }
+
+  if (target.classList.contains('decimal')) {
+    console.log(value)
+    return
+  }
+
+  if (target.classList.contains('clear')) {
+    console.log(value)
+    return
+  }
 })
 
 function Display() {
   output.value = calculator.displayValue;
-  console.log(output.value)
 }
 
 Display();
