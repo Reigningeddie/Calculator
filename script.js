@@ -23,22 +23,20 @@ function decimal(dot) {
   if (!calculator.display.includes(dot)) {
     calculator.display += dot;
   } 
-
 }
 
 keys.addEventListener('click', e => {
   const { target } = event;
   const { value } = event.target;
-
-  if (target.matches('button')) {
-    return;
-  }
+  
   
   if (target.classList.contains('operators')) {
+    console.log(value)
     return 
   }
 
   if (target.classList.contains('num')) {
+    console.log(value)
     return
   }
 
@@ -49,6 +47,7 @@ keys.addEventListener('click', e => {
   }
 
   if (target.classList.contains('clear')) {
+    console.log(value)
     return
   }
 
