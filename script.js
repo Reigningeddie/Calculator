@@ -11,7 +11,6 @@ const calculator = {
 
 function input(num) {
   const { display } = calculator;
-  
 
   calculator.display = display === '0' ? num : display + num
 }
@@ -24,12 +23,12 @@ keys.addEventListener('click', e => {
   Display();
   
   if (target.classList.contains('operators')) {
-    console.log(value);
+    console.log(value)
     return 
   }
 
   if (target.classList.contains('num')) {
-    console.log(value);
+    console.log(value)
     return
   }
 
