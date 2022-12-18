@@ -64,7 +64,6 @@ function clear() {
   calculator.firstNum = null;
   calculator.secondNum = false;
   calculator.operator = null;
-  console.log(calculator)
 }
 
 //-------------equals function--------------------//
