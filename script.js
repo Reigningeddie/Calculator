@@ -23,10 +23,15 @@ function inputNum(input) {
       calculator.display = display + input
     }
   }
-  console.log(calculator)
 }
 
 function decimal(dot) {
+  if (calculator.secondNum === true) {
+    calculator.display = '0.';
+    calculator.secondNum = false;
+    return;
+  }
+
   if (!calculator.display.includes(dot)) {
     calculator.display += dot;
   } 
@@ -38,7 +43,6 @@ function operator(assign) {
 
   if (operator && calculator.secondNum) {
     calculator.operator = assign;
-    console.log(calculator);
     return;
   }
 
@@ -47,12 +51,19 @@ function operator(assign) {
   } else if (operator) {
     const result = equate(firstNum, operator, input);
 
-    calculator.display = String(result);
+    calculator.display = `${parseFloat(result.toFixed(2))}`;
     calculator.firstNum = result;
   }
 
   calculator.secondNum = true;
   calculator.operator = assign;
+}
+
+function clear() {
+  calculator.display = '0';
+  calculator.firstNum = null;
+  calculator.secondNum = false;
+  calculator.operator = null;
   console.log(calculator)
 }
 
@@ -97,7 +108,8 @@ keys.addEventListener('click', e => {
   }
 
   if (target.classList.contains('clear')) {
-    console.log(value)
+    clear();
+    Display();
     return
   }
 
