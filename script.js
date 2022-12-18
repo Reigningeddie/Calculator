@@ -23,8 +23,6 @@ function inputNum(input) {
       calculator.display = display + input
     }
   }
-
-
   console.log(calculator)
 }
 
@@ -47,6 +45,20 @@ function operator(assign) {
   console.log(calculator)
 }
 
+function compute(first, operator, sec) {
+  if (operator === '+') {
+    return first + sec;
+  } else if (operator === '-') {
+    return first - sec;
+  } else if (operator === '&times;') {
+    return first * sec;
+  } else if (operator === '÷') {
+    return first / sec;
+  }
+
+  return sec;
+}
+
 //*----------------------------------------------//
 
 keys.addEventListener('click', e => {
@@ -67,8 +79,8 @@ keys.addEventListener('click', e => {
 
   if (target.classList.contains('decimal')) {
     decimal(value)
-    Display();
-    return;
+    Display()
+    return
   }
 
   if (target.classList.contains('clear')) {
