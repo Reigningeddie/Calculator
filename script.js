@@ -36,8 +36,19 @@ function operator(assign) {
   const { display, firstNum, operator } = calculator;
   const input = parseFloat(display);
 
+  if (operator && calculator.secondNum) {
+    calculator.operator = assign;
+    console.log(calculator);
+    return;
+  }
+
   if (firstNum === null && !isNaN(input)) {
     calculator.firstNum = input;
+  } else if (operator) {
+    const result = equate(firstNum, operator, input);
+
+    calculator.display = String(result);
+    calculator.firstNum = result;
   }
 
   calculator.secondNum = true;
@@ -45,18 +56,20 @@ function operator(assign) {
   console.log(calculator)
 }
 
-function compute(first, operator, sec) {
+//-------------equals function--------------------//
+function equate(firstNum, operator, secondNum) {
+
   if (operator === '+') {
-    return first + sec;
+    return firstNum + secondNum;
   } else if (operator === '-') {
-    return first - sec;
-  } else if (operator === '&times;') {
-    return first * sec;
+    return firstNum - secondNum;
+  } else if (operator === '\xD7' ) {
+    return firstNum * secondNum;
   } else if (operator === '÷') {
-    return first / sec;
+    return firstNum / secondNum;
   }
 
-  return sec;
+  return secondNum;
 }
 
 //*----------------------------------------------//
